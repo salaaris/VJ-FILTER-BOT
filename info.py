@@ -24,7 +24,7 @@ BOT_TOKEN = environ.get('BOT_TOKEN', "6863615162:AAG8JYQd6f3f-HUJJ8JDQOyKqO9wz8n
 
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 1800))
-PICS = (environ.get('PICS', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwPb8rn0egDyE_G_-aEb1uuCI71-Z_X4ZD4Q&s')).split() #SAMPLE PIC
+PICS = (environ.get('PICS', 'https://ew.com/thmb/bU_6_2BEgTSiiFZ-ywDaCijsnpY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/got-sn7_firstlook_14-2000-028a54de2224483f834ee398d24ef66f.jpg')).split() #SAMPLE PIC
 NOR_IMG = environ.get("NOR_IMG", "https://graph.org/file/b69af2db776e4e85d21ec.jpg")
 MELCOW_VID = environ.get("MELCOW_VID", "https://t.me/How_To_Open_Linkl")
 SPELL_IMG = environ.get("SPELL_IMG", "https://te.legra.ph/file/15c1ad448dfe472a5cbb8.jpg")
@@ -40,7 +40,7 @@ AUTH_USERS = (auth_users + ADMINS) if auth_users else []
 # if REQUEST_TO_JOIN_MODE is true then force subscribe work like request to join fsub, else if false then work like normal fsub.
 REQUEST_TO_JOIN_MODE = bool(environ.get('REQUEST_TO_JOIN_MODE', True)) # Set True Or False
 TRY_AGAIN_BTN = bool(environ.get('TRY_AGAIN_BTN', True)) # Set True Or False (This try again button is only for request to join fsub not for normal fsub)
-auth_channel = environ.get('AUTH_CHANNEL', '-1002089730889') # give your force subscribe channel id here else leave it blank
+auth_channel = environ.get('AUTH_CHANNEL', 'CN_FILES') # give your force subscribe channel id here else leave it blank
 AUTH_CHANNEL = int(auth_channel) if auth_channel and id_pattern.search(auth_channel) else None
 reqst_channel = environ.get('REQST_CHANNEL_ID', '')
 REQST_CHANNEL = int(reqst_channel) if reqst_channel and id_pattern.search(reqst_channel) else None
