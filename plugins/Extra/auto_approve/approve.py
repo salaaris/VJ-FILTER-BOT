@@ -19,7 +19,7 @@ join_db = JoinReqs
 @Client.on_chat_join_request((filters.group | filters.channel))
 async def auto_approve(client, message: ChatJoinRequest):
     if message.chat.id == AUTH_CHANNEL and join_db().isActive():
-        if REQUEST_TO_JOIN_MODE == False:
+        if REQUEST_TO_JOIN_MODE == True:
             return 
         ap_user_id = message.from_user.id
         first_name = message.from_user.first_name
@@ -203,7 +203,7 @@ async def auto_approve(client, message: ChatJoinRequest):
                 )
                 filesarr.append(msg)
             k = await client.send_message(chat_id = message.from_user.id, text=f"<b><u>❗️❗️❗️IMPORTANT❗️️❗️❗️</u></b>\n\nThis Movie Files/Videos will be deleted in <b><u>10 mins</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this ALL Files/Videos to your Saved Messages and Start Download there</i></b>")
-            await asyncio.sleep(600)
+            await asyncio.sleep(60)
             for x in filesarr:
                 await x.delete()
             await k.edit_text("<b>Your All Files/Videos is successfully deleted!!!</b>")
@@ -286,8 +286,8 @@ async def auto_approve(client, message: ChatJoinRequest):
                 btn = [[
                     InlineKeyboardButton("Get File Again", callback_data=f'delfile#{file_id}')
                 ]]
-                k = await client.send_message(message.from_user.id,"<b><u>❗️❗️❗️IMPORTANT❗️️❗️❗️</u></b>\n\nThis Movie File/Video will be deleted in <b><u>10 mins</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this File/Video to your Saved Messages and Start Download there</i></b>",quote=True)
-                await asyncio.sleep(600)
+                k = await client.send_message(message.from_user.id,"<b><u>❗️❗️❗️IMPORTANT❗️️❗️❗️</u></b>\n\nThis Movie File/Video will be deleted in <b><u>10 mins</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this File/Video to your Saved Messages and Start Download there</i></b>",quote=False)
+                await asyncio.sleep(60)
                 await msg.delete()
                 await k.edit_text("<b>Your File/Video is successfully deleted!!!\n\nClick below button to get your deleted file 👇</b>",reply_markup=InlineKeyboardMarkup(btn))
                 return
@@ -347,7 +347,7 @@ async def auto_approve(client, message: ChatJoinRequest):
             InlineKeyboardButton("Get File Again", callback_data=f'delfile#{file_id}')
         ]]
         k = await client.send_message(message.from_user.id, "<b><u>❗️❗️❗️IMPORTANT❗️️❗️❗️</u></b>\n\nThis Movie File/Video will be deleted in <b><u>10 mins</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this File/Video to your Saved Messages and Start Download there</i></b>",quote=True)
-        await asyncio.sleep(600)
+        await asyncio.sleep(60)
         await msg.delete()
         await k.edit_text("<b>Your File/Video is successfully deleted!!!\n\nClick below button to get your deleted file 👇</b>",reply_markup=InlineKeyboardMarkup(btn))
         return
